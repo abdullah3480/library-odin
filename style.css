@@ -10,9 +10,12 @@
     position: relative;
 }
 #overlay{
-    
-    width: 100px;
-    height: 80px;
+    width: 20rem;
+    height: 25rem;
+    border-radius: 30px;
+    justify-self: center;
+    align-self: center;
+    padding: 3rem;
     top: 100px;
     display: none;
     background-color: black;
@@ -26,7 +29,7 @@
     background-color: rgb(167, 167, 167);
     border-radius: 2rem;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    
     grid-template-rows: 1fr 7fr;
 }
 
@@ -36,11 +39,13 @@
 }
 
 .bookCard > ul{
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 2rem;
     list-style: none;
     font-size: 24px;
-    justify-content: center;
+    align-items: center;
+    justify-content: space-evenly;
     margin: 0;
     padding: 0;
 }
@@ -48,4 +53,5 @@
 .bookcards{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,20rem));
+    gap: 3rem;
 }

@@ -23,6 +23,8 @@ function Book(title,author,pages,read){
 let harryPotter = new Book("Harry Potter","JK Rowling",456,"Yes")
 myLibrary.push(harryPotter);
 
+let got = new Book("Game of Thrones","GRRM","1000","No")
+myLibrary.push(got)
 
 const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
