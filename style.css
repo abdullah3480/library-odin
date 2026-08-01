@@ -10,6 +10,7 @@
     position: relative;
 }
 #overlay{
+
     width: 20rem;
     height: 25rem;
     border-radius: 30px;
@@ -18,7 +19,7 @@
     padding: 3rem;
     top: 100px;
     display: none;
-    background-color: black;
+    background-color: rgb(138, 138, 138);
     
     position: absolute; 
 }
@@ -54,4 +55,28 @@
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(15rem,20rem));
     gap: 3rem;
+}
+
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    flex : 4
+}
+
+.submit{
+    flex-shrink: 1;
+}
+
+input{
+    width: 50px;
+    height: 10px;
+}
+
+.overlayContainer{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }

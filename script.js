@@ -26,6 +26,8 @@ myLibrary.push(harryPotter);
 let got = new Book("Game of Thrones","GRRM","1000","No")
 myLibrary.push(got)
 
+let mockingbird = new Book("kill a mocking bird","harper Lee","200","Yes")
+myLibrary.push(mockingbird)
 const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
 
