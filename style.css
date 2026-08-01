@@ -1,0 +1,51 @@
+
+.body{
+    height: 100vh;
+}
+
+.container{
+    
+    min-height: 100vh;
+    min-width: 100vw;
+    position: relative;
+}
+#overlay{
+    
+    width: 100px;
+    height: 80px;
+    top: 100px;
+    display: none;
+    background-color: black;
+    
+    position: absolute; 
+}
+
+.bookCard{
+    width: 20rem;
+    height: 80%;
+    background-color: rgb(167, 167, 167);
+    border-radius: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 7fr;
+}
+
+.bookCard > h1{
+    justify-self: center;
+    grid-column: 1/3;
+}
+
+.bookCard > ul{
+    display: grid;
+    gap: 2rem;
+    list-style: none;
+    font-size: 24px;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.bookcards{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(15rem,20rem));
+}
