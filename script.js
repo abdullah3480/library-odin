@@ -41,9 +41,11 @@ function addBooktoLibrary(myLibrary){
 
 }
 
-let bookCards = []
+let removeBookButtons;
 function displayBooks(myLibrary){
-    
+    while(cards.firstChild){
+        cards.removeChild(cards.lastChild)
+    }
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
@@ -94,17 +96,10 @@ function displayBooks(myLibrary){
 
         // 
         cross.dataset.bookid = i;
-        bookCards.push(bookCard);
-        cards.appendChild(bookCards[i])
+        cards.appendChild(bookCard)
     }
 
-
-}
-
-
-
-displayBooks(myLibrary)
-let removeBookButtons = document.querySelectorAll('.removeBook');
+    removeBookButtons = document.querySelectorAll('.removeBook');
 
 for(let i = 0; i < removeBookButtons.length; i++){
     
@@ -112,12 +107,16 @@ for(let i = 0; i < removeBookButtons.length; i++){
         console.log(removeBookButtons[i].dataset.bookid);
         let id = removeBookButtons[i].dataset.bookid;
         delete myLibrary[id];
-        bookCards[i].remove();
+        
+        cards.children[i].remove();
         
         displayBooks(myLibrary);
     })
 }
 
-let a = [10,20,30];
-delete a[1];
-for (let i in a) { console.log(i); }
+}
+
+
+
+displayBooks(myLibrary)
+
