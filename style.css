@@ -80,3 +80,7 @@ input{
     align-items: center;
     width: 100%;
 }
+
+.close{
+    border-radius: 100px;
+}

@@ -4,7 +4,12 @@ const button = document.querySelector('button');
 const overlay = document.getElementById('overlay');
 
 const container = document.getElementById('container')
+const closeButton = document.getElementById('close');
 
+closeButton.addEventListener('click', ()=>{
+    overlay.style.display = 'none';
+    container.style.opacity = 1;
+})
 button.addEventListener('click',()=>{
     overlay.style.display = 'flex';
     container.style.opacity = 0.5
