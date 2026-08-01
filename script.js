@@ -36,14 +36,28 @@ myLibrary.push(mockingbird)
 const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
 
+
+function addBooktoLibrary(myLibrary){
+
+}
+
+let bookCards = []
 function displayBooks(myLibrary){
+    
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
+
+         let cross = document.createElement('button')
+        cross.className = 'removeBook';
+        cross.textContent = 'X'
+        bookCard.appendChild(cross);
+
          let h1 = document.createElement('h1')
          bookCard.appendChild(h1);
          h1.textContent = 'Book';
 
+       
         let ul1 = document.createElement('ul');
         bookCard.appendChild(ul1)
         
@@ -78,10 +92,32 @@ function displayBooks(myLibrary){
         li2[3].textContent = myLibrary[i].read;
         
 
-        cards.appendChild(bookCard)
+        // 
+        cross.dataset.bookid = i;
+        bookCards.push(bookCard);
+        cards.appendChild(bookCards[i])
     }
 
 
 }
 
+
+
 displayBooks(myLibrary)
+let removeBookButtons = document.querySelectorAll('.removeBook');
+
+for(let i = 0; i < removeBookButtons.length; i++){
+    
+    removeBookButtons[i].addEventListener('click',function(){
+        console.log(removeBookButtons[i].dataset.bookid);
+        let id = removeBookButtons[i].dataset.bookid;
+        delete myLibrary[id];
+        bookCards[i].remove();
+        
+        displayBooks(myLibrary);
+    })
+}
+
+let a = [10,20,30];
+delete a[1];
+for (let i in a) { console.log(i); }
