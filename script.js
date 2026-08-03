@@ -38,9 +38,14 @@ const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
 
 
-function addBooktoLibrary(myLibrary,title,author,pages,read){
+function addBooktoLibrary(myLibrary){
+    let title = document.forms[0].title.value;
+    let author = document.forms[0].author.value;
+    let pages = document.forms[0].pages.value;
+    let read = document.forms[0].read.value;
     let newBook = new Book(title,author,pages,read)
     myLibrary.push(newBook);
+    displayBooks(myLibrary)
 }
 
 let removeBookButtons;
@@ -123,9 +128,7 @@ let submit = document.getElementById('submit');
 
 submit.addEventListener('click',(event) =>{
     event.preventDefault();
-    
-    console.log(document.forms[0].author.value)
-    document.forms[0].author.value = '';
+    addBooktoLibrary(myLibrary);
     
 })
 
