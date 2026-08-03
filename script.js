@@ -32,7 +32,7 @@ myLibrary.push(harryPotter);
 let got = new Book("Game of Thrones","GRRM","1000","No")
 myLibrary.push(got)
 
-let mockingbird = new Book("kill a mocking bird","harper Lee","200","Yes")
+let mockingbird = new Book("to kill a mocking bird","harper Lee","200","Yes")
 myLibrary.push(mockingbird)
 const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
@@ -123,7 +123,9 @@ let submit = document.getElementById('submit');
 
 submit.addEventListener('click',(event) =>{
     event.preventDefault();
-    // console.log(document.forms[0][title])
+    
+    console.log(document.forms[0].author.value)
+    document.forms[0].author.value = '';
     
 })
 
