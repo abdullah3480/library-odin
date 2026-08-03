@@ -43,9 +43,9 @@ function addBooktoLibrary(myLibrary){
 
 let removeBookButtons;
 function displayBooks(myLibrary){
-    while(cards.firstChild){
-        cards.removeChild(cards.lastChild)
-    }
+    // while(cards.firstChild){
+    //     cards.removeChild(cards.lastChild)
+    // }
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
@@ -101,18 +101,18 @@ function displayBooks(myLibrary){
 
     removeBookButtons = document.querySelectorAll('.removeBook');
 
-for(let i = 0; i < removeBookButtons.length; i++){
+// for(let i = 0; i < removeBookButtons.length; i++){
     
-    removeBookButtons[i].addEventListener('click',function(){
-        console.log(removeBookButtons[i].dataset.bookid);
-        let id = removeBookButtons[i].dataset.bookid;
-        delete myLibrary[id];
+//     removeBookButtons[i].addEventListener('click',function(){
+//         console.log(removeBookButtons[i].dataset.bookid);
+//         let id = removeBookButtons[i].dataset.bookid;
+//         delete myLibrary[id];
         
-        cards.children[i].remove();
+//         cards.children[i].remove();
         
-        displayBooks(myLibrary);
-    })
-}
+//         displayBooks(myLibrary);
+//     })
+// }
 
 }
 
