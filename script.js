@@ -23,11 +23,12 @@ function Book(title,author,pages,read){
     this.author = author;
     this.pages = pages;
     this.read = read;
+    this.id = crypto.randomUUID();
 }
 
 let harryPotter = new Book("Harry Potter","JK Rowling",456,"Yes")
 myLibrary.push(harryPotter);
-
+console.log(harryPotter.id)
 let got = new Book("Game of Thrones","GRRM","1000","No")
 myLibrary.push(got)
 
