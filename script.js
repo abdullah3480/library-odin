@@ -45,7 +45,8 @@ function addBooktoLibrary(myLibrary){
     let read = document.forms[0].read.value;
     let newBook = new Book(title,author,pages,read)
     myLibrary.push(newBook);
-    displayBooks(myLibrary)
+    displayBooks(myLibrary);
+
 }
 
 let removeBookButtons;
@@ -131,6 +132,12 @@ submit.addEventListener('click',(event) =>{
     addBooktoLibrary(myLibrary);
     overlay.style.display = 'none';
     container.style.opacity = 1;
+
+    document.forms[0].title.value = '';
+    document.forms[0].author.value = '';
+    document.forms[0].pages.value = '';
+    document.forms[0].read.value = '';
+
 })
 
 displayBooks(myLibrary)
