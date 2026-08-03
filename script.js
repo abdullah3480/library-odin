@@ -50,6 +50,7 @@ function addBooktoLibrary(myLibrary){
 }
 
 let removeBookButtons = [];
+let toggleButtos = [];
 function displayBooks(myLibrary){
     while(cards.firstChild){
         cards.removeChild(cards.firstChild);
@@ -74,6 +75,8 @@ function displayBooks(myLibrary){
         
         let ul2 = document.createElement('ul');
         bookCard.appendChild(ul2)
+
+        
 
         let li1 = [];
         li1.length = 4;
@@ -101,7 +104,13 @@ function displayBooks(myLibrary){
 
         li1[3].textContent = 'Read';
         li2[3].textContent = myLibrary[i].read;
-        
+        li2[3].className = 'readStatus'
+
+        let toggle = document.createElement('button');
+        toggle.textContent = 'Toggle read status';
+        toggle.dataset.bookid = myLibrary[i].id;
+        toggle.className = 'toggleButton'
+        bookCard.appendChild(toggle)
 
         // 
         cross.dataset.bookid = myLibrary[i].id;
@@ -110,6 +119,7 @@ function displayBooks(myLibrary){
     }
 
     removeBookButtons = document.querySelectorAll('.removeBook')
+    toggleButtos = document.querySelectorAll('.toggleButton');
    
 
 }
@@ -153,4 +163,36 @@ for(let i = 0; i < myLibrary.length; i++){
         }
     })
 }
+
+for(let i = 0; i < myLibrary.length; i++){
+    toggleButtos[i].addEventListener('click', () =>{
+        
+        for(let j = 0; j < myLibrary.length; j++){
+            // console.log(removeBookButtons[i].dataset.id)
+            let bookCard = document.getElementById(myLibrary[j].id)
+            let readstatus = bookCard.querySelector('.readStatus')
+            if(toggleButtos[i].dataset.bookid == myLibrary[j].id){
+                if(myLibrary[j].read == 'Yes'){
+                    myLibrary[j].read = 'No';
+                    readstatus.textContent = 'No'
+                   
+                }
+
+                else if(myLibrary[j].read == 'No'){
+                    myLibrary[j].read = 'Yes';
+                    readstatus.textContent = 'Yes'
+                }
+
+                else
+                    alert("Invalid Read Status")
+
+
+
+            }
+            
+        }
+        
+    })
+}
+
 
