@@ -45,13 +45,16 @@ function addBooktoLibrary(myLibrary){
     let read = document.forms[0].read.value;
     let newBook = new Book(title,author,pages,read)
     myLibrary.push(newBook);
-    displayBooks(myLibrary);
+    
 
 }
 
 let removeBookButtons;
 function displayBooks(myLibrary){
-    
+    while(cards.firstChild){
+        cards.removeChild(cards.firstChild);
+        
+    }
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
@@ -137,6 +140,7 @@ submit.addEventListener('click',(event) =>{
     document.forms[0].author.value = '';
     document.forms[0].pages.value = '';
     document.forms[0].read.value = '';
+    displayBooks(myLibrary);
 
 })
 
