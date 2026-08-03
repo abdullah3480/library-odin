@@ -129,7 +129,8 @@ let submit = document.getElementById('submit');
 submit.addEventListener('click',(event) =>{
     event.preventDefault();
     addBooktoLibrary(myLibrary);
-    
+    overlay.style.display = 'none';
+    container.style.opacity = 1;
 })
 
 displayBooks(myLibrary)
