@@ -49,20 +49,20 @@ function addBooktoLibrary(myLibrary){
 
 }
 
-let removeBookButtons;
+let removeBookButtons = [];
 function displayBooks(myLibrary){
     while(cards.firstChild){
         cards.removeChild(cards.firstChild);
-        
+
     }
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
 
-        //  let cross = document.createElement('button')
-        // cross.className = 'removeBook';
-        // cross.textContent = 'X'
-        // bookCard.appendChild(cross);
+         let cross = document.createElement('button')
+        cross.className = 'removeBook';
+        cross.textContent = 'X'
+        bookCard.appendChild(cross);
 
          let h1 = document.createElement('h1')
          bookCard.appendChild(h1);
@@ -103,25 +103,14 @@ function displayBooks(myLibrary){
         li2[3].textContent = myLibrary[i].read;
         
 
-        // // 
-        // cross.dataset.bookid = i;
+        // 
+        cross.dataset.bookid = myLibrary[i].id;
+        bookCard.setAttribute('id',myLibrary[i].id);
         cards.appendChild(bookCard)
     }
 
-    // removeBookButtons = document.querySelectorAll('.removeBook');
-
-// for(let i = 0; i < removeBookButtons.length; i++){
-    
-//     removeBookButtons[i].addEventListener('click',function(){
-//         console.log(removeBookButtons[i].dataset.bookid);
-//         let id = removeBookButtons[i].dataset.bookid;
-//         delete myLibrary[id];
-        
-//         cards.children[i].remove();
-        
-//         displayBooks(myLibrary);
-//     })
-// }
+    removeBookButtons = document.querySelectorAll('.removeBook')
+   
 
 }
 
@@ -144,5 +133,24 @@ submit.addEventListener('click',(event) =>{
 
 })
 
+console.log(typeof(removeBookButtons))
+
+
 displayBooks(myLibrary)
+
+
+for(let i = 0; i < myLibrary.length; i++){
+    removeBookButtons[i].addEventListener('click', () =>{
+        for(let j = 0; j < myLibrary.length; j++){
+            // console.log(removeBookButtons[i].dataset.id)
+            if(removeBookButtons[i].dataset.bookid == myLibrary[j].id){
+                document.getElementById(removeBookButtons[i].dataset.bookid).remove();//finally fucking working
+                
+                myLibrary.splice(j,1);
+
+            }
+            
+        }
+    })
+}
 
