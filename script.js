@@ -28,7 +28,7 @@ function Book(title,author,pages,read){
 
 let harryPotter = new Book("Harry Potter","JK Rowling",456,"Yes")
 myLibrary.push(harryPotter);
-console.log(harryPotter.id)
+
 let got = new Book("Game of Thrones","GRRM","1000","No")
 myLibrary.push(got)
 
@@ -38,23 +38,22 @@ const cards = document.getElementById('bookcards')
 const newdiv = document.createElement('div')
 
 
-function addBooktoLibrary(myLibrary){
-
+function addBooktoLibrary(myLibrary,title,author,pages,read){
+    let newBook = new Book(title,author,pages,read)
+    myLibrary.push(newBook);
 }
 
 let removeBookButtons;
 function displayBooks(myLibrary){
-    // while(cards.firstChild){
-    //     cards.removeChild(cards.lastChild)
-    // }
+    
     for(let i in myLibrary){
         let bookCard = document.createElement('div')
         bookCard.className = 'bookCard';
 
-         let cross = document.createElement('button')
-        cross.className = 'removeBook';
-        cross.textContent = 'X'
-        bookCard.appendChild(cross);
+        //  let cross = document.createElement('button')
+        // cross.className = 'removeBook';
+        // cross.textContent = 'X'
+        // bookCard.appendChild(cross);
 
          let h1 = document.createElement('h1')
          bookCard.appendChild(h1);
@@ -95,12 +94,12 @@ function displayBooks(myLibrary){
         li2[3].textContent = myLibrary[i].read;
         
 
-        // 
-        cross.dataset.bookid = i;
+        // // 
+        // cross.dataset.bookid = i;
         cards.appendChild(bookCard)
     }
 
-    removeBookButtons = document.querySelectorAll('.removeBook');
+    // removeBookButtons = document.querySelectorAll('.removeBook');
 
 // for(let i = 0; i < removeBookButtons.length; i++){
     
@@ -118,6 +117,15 @@ function displayBooks(myLibrary){
 }
 
 
+let title = document.getElementById('title');
+
+let submit = document.getElementById('submit');
+
+submit.addEventListener('click',(event) =>{
+    event.preventDefault();
+    // console.log(document.forms[0][title])
+    
+})
 
 displayBooks(myLibrary)
 

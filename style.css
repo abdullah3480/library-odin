@@ -75,7 +75,7 @@ input{
 .overlayContainer{
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
     justify-content: center;
     align-items: center;
     width: 100%;
@@ -83,4 +83,15 @@ input{
 
 .close{
     border-radius: 100px;
+}
+
+#submit{
+    padding: 1rem;
+    padding-right: 3.5rem;
+    padding-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 15px;
+    
 }
