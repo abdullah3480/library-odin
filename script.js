@@ -26,16 +26,16 @@ function Book(title,author,pages,read){
     this.id = crypto.randomUUID();
 }
 
-let harryPotter = new Book("Harry Potter","JK Rowling",456,"Yes")
-myLibrary.push(harryPotter);
+// let harryPotter = new Book("Harry Potter","JK Rowling",456,"Yes")
+// myLibrary.push(harryPotter);
 
-let got = new Book("Game of Thrones","GRRM","1000","No")
-myLibrary.push(got)
+// let got = new Book("Game of Thrones","GRRM","1000","No")
+// myLibrary.push(got)
 
-let mockingbird = new Book("to kill a mocking bird","harper Lee","200","Yes")
-myLibrary.push(mockingbird)
+// let mockingbird = new Book("to kill a mocking bird","harper Lee","200","Yes")
+// myLibrary.push(mockingbird)
 const cards = document.getElementById('bookcards')
-const newdiv = document.createElement('div')
+
 
 
 function addBooktoLibrary(myLibrary){
@@ -141,26 +141,20 @@ submit.addEventListener('click',(event) =>{
     document.forms[0].read.value = '';
     displayBooks(myLibrary);
 
-})
-
-console.log(typeof(removeBookButtons))
-
-
-displayBooks(myLibrary)
-
 
 for(let i = 0; i < myLibrary.length; i++){
     removeBookButtons[i].addEventListener('click', () =>{
         for(let j = 0; j < myLibrary.length; j++){
             // console.log(removeBookButtons[i].dataset.id)
             if(removeBookButtons[i].dataset.bookid == myLibrary[j].id){
-                document.getElementById(removeBookButtons[i].dataset.bookid).remove();//finally fucking working
+                document.getElementById(removeBookButtons[i].dataset.bookid).remove();//finally fucking working update: not really fuck ts ; upate : works now i think
                 
                 myLibrary.splice(j,1);
-
             }
             
         }
+        console.log(removeBookButtons)
+
     })
 }
 
@@ -194,5 +188,60 @@ for(let i = 0; i < myLibrary.length; i++){
         
     })
 }
+
+
+})
+
+
+
+displayBooks(myLibrary)
+
+
+// for(let i = 0; i < myLibrary.length; i++){
+//     removeBookButtons[i].addEventListener('click', () =>{
+//         for(let j = 0; j < myLibrary.length; j++){
+//             // console.log(removeBookButtons[i].dataset.id)
+//             if(removeBookButtons[i].dataset.bookid == myLibrary[j].id){
+//                 document.getElementById(removeBookButtons[i].dataset.bookid).remove();//finally fucking working update: not really fuck ts
+                
+//                 myLibrary.splice(j,1);
+//             }
+            
+//         }
+//         console.log(removeBookButtons)
+
+//     })
+// }
+
+// for(let i = 0; i < myLibrary.length; i++){
+//     toggleButtos[i].addEventListener('click', () =>{
+        
+//         for(let j = 0; j < myLibrary.length; j++){
+//             // console.log(removeBookButtons[i].dataset.id)
+//             let bookCard = document.getElementById(myLibrary[j].id)
+//             let readstatus = bookCard.querySelector('.readStatus')
+//             if(toggleButtos[i].dataset.bookid == myLibrary[j].id){
+//                 if(myLibrary[j].read == 'Yes'){
+//                     myLibrary[j].read = 'No';
+//                     readstatus.textContent = 'No'
+                   
+//                 }
+
+//                 else if(myLibrary[j].read == 'No'){
+//                     myLibrary[j].read = 'Yes';
+//                     readstatus.textContent = 'Yes'
+//                 }
+
+//                 else
+//                     alert("Invalid Read Status")
+
+
+
+//             }
+            
+//         }
+        
+//     })
+// }
 
 
